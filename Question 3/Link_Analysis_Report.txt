@@ -1,0 +1,26 @@
+Question 3: File System and Link Analysis Report
+
+Firstly, created file.txt using touch command and used vi editor to add text inside the file.txt, then subsequently created hardlink and symbolic link.
+
+1. 
+
+Command: ls -li
+Observation: I created a hard link using (ln) ('hardlink.txt') and a symbolic link using ('ln -s') (symlink.txt) to 'file.txt' and ran 'ls -li'. The output showed that the original file and the hard link share the exact same inode number, while the symbolic link has a completely different inode number.
+
+2. 
+
+A hard link acts as an additional valid name/pointer directly to the underlying data (inode) on the disk. A symbolic (soft) link is merely a shortcut file that points to the file path of the original file, not the data itself.
+
+3. 
+
+Command: stat file.txt
+Observation: I ran the 'stat' command to view detailed file metadata. The output displayed crucial information including access rights, timestamps (Access, Modify, Change), and the number of links pointing to the inode.
+
+4. 
+
+Command: rm file.txt && cat hardlink.txt && cat symlink.txt
+Observation: After deleting the original file, I could still successfully read the contents using 'cat hardlink.txt' because the underlying inode data persists as long as one hard link exists. However, 'cat symlink.txt' failed with a "No such file or directory" error because it was pointing to a file path that no longer exists .
+
+5.
+
+The experiment proves that hard links are resilient to the original file's deletion because they reference the data block directly. In contrast, symbolic links break when the target is moved or deleted because they only reference the file name.

@@ -1,0 +1,23 @@
+Question 5: Storage Health Assessment and Documentation
+
+1.
+
+Command: lsblk
+Observation: I used 'lsblk' to list block devices. The output provided a tree-like view of all attached physical drives, their partitions, and their sizes, helping identify the raw storage hardware available to the server.
+
+2. 
+
+Command: df -h
+Observation: I executed 'df -h' to view mounted file systems in a human-readable format (Gigabytes/Megabytes). The output showed where partitions are mounted (e.g., '/') and the percentage of space used versus space available.
+
+3.
+
+Command: df -i
+Observation: I ran 'df -i' to check the inode usage across mounted file systems. The output showed the total, used, and available inodes, which is critical because running out of inodes prevents new files from being created even if physical disk space remains.
+
+4. Storage Health Observations:
+Based on the outputs, the primary FileSystem partition has adequate space available (e.g., 29% used). The inode utilization is also well within safe limits, indicating that the system is not currently at risk of storage exhaustion or metadata table overflow.
+
+5. 
+
+To maintain optimal storage health for the new application server, I recommend implementing a regular log rotation policy to prevent log files from indefinitely consuming disk space. Additionally, setting up alerts to trigger when disk space or inode usage exceeds 80% will help preemptively manage storage before a system failure occurs.

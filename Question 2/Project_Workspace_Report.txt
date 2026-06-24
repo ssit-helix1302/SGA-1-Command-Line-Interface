@@ -1,0 +1,29 @@
+Question 2: Secure Project Workspace Setup Report
+
+1. 
+
+Command: mkdir -p workspace_project/docs && touch workspace_project/project_data.txt
+Observation: I used 'mkdir -p' to create a parent project directory with a nested 'docs' folder, and 'touch' to create a dummy data file. This successfully established the foundational structure for the secure workspace.
+
+
+2.
+
+Command: ls -l secure_project/project_data.txt (Before)
+Observation: Initially, the file had default permissions (e.g., -rw-r--r--), meaning the owner could read/write, but others could still read it.
+
+Command: chmod 600 secure_project/project_data.txt (After)
+Observation: I used 'chmod 600' to restrict access entirely. A subsequent 'ls -l' confirmed the permissions changed to '-rw-------', meaning only the owner has read and write access.
+
+3.
+
+Command: ls -l secure_project/project_data.txt
+Observation: The 'ls -l' output clearly displays the user owner and group owner of the file in the third and fourth columns of the terminal output.
+
+4.
+
+Command: umask
+Observation: I checked the default file creation mask using 'umask'. The system returned '0022' (or your system's default), which dictates the default permissions given to newly created files.
+
+
+5. Explanation of Data Protection:
+By setting directory permissions to 700 and file permissions to 600, we ensure strict isolation. Only the specific user account that owns the files can enter the directory or read/modify the data, effectively protecting the project from unauthorized access by other users on the same system.

@@ -1,0 +1,25 @@
+Question 4: File Access and I/O Investigation Report
+
+1. 
+
+Command: lsof | head -n 15
+Observation: I executed 'lsof' (list open files) and piped it to 'head' to view the first few entries. The output listed active processes, their PIDs, and the specific files or libraries they currently hold open in the system.
+
+2. 
+
+Command: ls -l /proc/$$/fd
+Observation: I investigated the file descriptors for my current shell by listing the contents of '/proc/$$/fd'. The output revealed the standard file descriptors: 0 (stdin), 1 (stdout), and 2 (stderr), pointing to my terminal's character device.
+
+3. 
+
+Command: ls /etc/passwd /fake_directory_name > standard_out.txt 2> standard_error.txt
+Observation: I intentionally ran a command with one valid and one invalid argument. By using '>' and '2>', I successfully routed the successful listing to 'standard_out.txt' and the "No such file" error message to 'standard_error.txt', keeping the terminal output clean.
+
+4.
+
+Command: ulimit -a
+Observation: I ran 'ulimit -a' to view the resource limits applied to my current shell session. The output displayed maximum thresholds for things like "open files", max user processes, and stack size.
+
+5. 
+
+Linux manages file I/O by treating everything (files, directories, devices, network sockets) as a file. When a process requests access, the kernel assigns an integer called a "file descriptor" to track the open file, using standard streams (0, 1, 2) by default, and respects limits set by the system (like ulimits) to prevent resource exhaustion.

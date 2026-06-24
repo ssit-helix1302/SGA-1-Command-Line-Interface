@@ -1,0 +1,26 @@
+Question 1: Linux Environment Verification Report
+
+1.
+
+Command: id
+Observation: I executed the 'id' command to retrieve my user and group information. The output displayed my current UID (user ID), GID (group ID), and all the secondary groups my account belongs to.
+
+2.
+
+Command: echo $SHELL
+Observation: I used the echo command to print the SHELL environment variable. The output showed '/bin/bash' (or your respective shell), confirming the command-line interpreter I am currently using.
+
+3.
+
+Command: pwd
+Observation: I executed 'pwd' (print working directory) to verify my location in the file system. The output displayed my absolute path, which is '/home/coder'.
+
+4.
+
+Command: ls -la
+Observation: I ran 'ls -la' to list all files, including hidden files, in a long format. The output showed the permissions, ownership, size, and modification dates of the contents in my current directory.
+
+5.
+
+Command: ping -c 5 google.com
+Observation: I sent 5 ICMP echo requests to google.com using the 'ping' command. The output showed 100% packet loss, confirming that the Linux environment has inactive internet connectivity.

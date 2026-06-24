@@ -8,7 +8,7 @@ Observation: I used 'lsblk' to list block devices. The output provided a tree-li
 2. 
 
 Command: df -h
-Observation: I executed 'df -h' to view mounted file systems in a human-readable format (Gigabytes/Megabytes). The output showed where partitions are mounted (e.g., '/') and the percentage of space used versus space available.
+Observation: I executed 'df -h' to view mounted file systems in a human-readable format (Gigabytes/Megabytes). The output showed where partitions are mounted  and the percentage of space used versus space available.
 
 3.
 
